@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">IdCards</string>
+    <string name="student_name">NABAYA NESTROY</string>
+    <string name="registration_number">Registration Number: 24/2/306/D/053</string>
+    <string name="programme">Programme: BSc in Computer Science</string>
+    <string name="issue_date">Data of Issue: 01/02/2026</string>
+    <string name="expiry_date">Expiry Date: 01/02/2029</string>
+</resources>
+
