@@ -47,7 +47,7 @@ private val MaroonDark = Color(0xFF5A1019)
 fun UniversityID() {
     ElevatedCard(
         modifier = Modifier
-            .width(500.dp)
+            .fillMaxWidth()
             .wrapContentHeight()  // grows to fit all content
             .padding(16.dp),
         shape = RoundedCornerShape(18.dp)
@@ -78,15 +78,16 @@ fun UniversityID() {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(110.dp)
+                        .height(80.dp)
                         .background(Maroon)
                 ) {
                     // NDU LOGO
                     Box(
                         modifier = Modifier
-                            .size(width = 100.dp, height = 110.dp)
+                            .size(90.dp)
+                            .aspectRatio(1f)
                             .align(Alignment.BottomStart)
-                            .offset(y = 25.dp)
+                            .offset(y = 10.dp)
                             .clip(RoundedCornerShape(50))
                             .background(Color.White),
                         contentAlignment = Alignment.Center
@@ -95,7 +96,6 @@ fun UniversityID() {
                             painter = painterResource(R.drawable.ndu_logo),
                             contentDescription = null,
                             modifier = Modifier
-                                .size(95.dp)
                                 .fillMaxSize(0.75f),
                             contentScale = ContentScale.Fit
                         )
@@ -113,8 +113,9 @@ fun UniversityID() {
                     Box(
                         modifier = Modifier
                             .size(120.dp)
+                            .aspectRatio(1f)
                             .align(Alignment.BottomCenter)
-                            .offset(y = 40.dp)
+                            .offset(y = 25.dp)
                             .clip(CircleShape)
                             .background(Color.White)
                             .border(3.dp, Maroon, CircleShape),
@@ -125,13 +126,14 @@ fun UniversityID() {
                             painter = painterResource(R.drawable.cryus),
                             contentDescription = null,
                             modifier = Modifier
-                                .size(105.dp)
+                                .fillMaxSize()
+                                .aspectRatio(1f)
                                 .clip(CircleShape),
                             contentScale = ContentScale.Crop
                         )
                     }
                 }
-                Spacer(Modifier.height(55.dp))
+                Spacer(Modifier.height(50.dp))
                 Text(
                     text = stringResource(id = R.string.student_name).uppercase(),
                     fontWeight = FontWeight.Bold,
