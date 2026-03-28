@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.res.stringResource
 import com.example.idcards.ui.theme.IdCardsTheme
+import com.example.idcards.model.Student
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +34,16 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             IdCardsTheme {
-                UniversityID()
+                val student = Student(
+                    name = "NABAYA NESTROY",
+                    programme = "BSc Computer Science",
+                    regNo = "24/2/306/D/053",
+                    issueDate = "2024",
+                    expiryDate = "2027",
+                    photoRes = R.drawable.cryus
+                )
+
+                UniversityID(student = student)
             }
         }
     }
@@ -41,7 +51,7 @@ class MainActivity : ComponentActivity() {
 private val Maroon = Color(0xFF7B1C27)
 private val MaroonDark = Color(0xFF5A1019)
 @Composable
-fun UniversityID() {
+fun UniversityID(student: Student) {
     ElevatedCard(
         modifier = Modifier
             .fillMaxWidth()
@@ -120,7 +130,7 @@ fun UniversityID() {
                     ) {
 
                         Image(
-                            painter = painterResource(R.drawable.cryus),
+                            painter = painterResource(student.photoRes),
                             contentDescription = null,
                             modifier = Modifier
                                 .fillMaxSize()
@@ -132,26 +142,26 @@ fun UniversityID() {
                 }
                 Spacer(Modifier.height(50.dp))
                 Text(
-                    text = stringResource(id = R.string.student_name).uppercase(),
+                    text = student.name.uppercase(),
                     fontWeight = FontWeight.Bold,
                     fontSize = 20.sp,
                     textAlign = TextAlign.Center
                 )
                 Text(
-                    text = stringResource(id = R.string.programme),
+                    text = student.programme,
                     fontWeight = FontWeight.ExtraBold,
                     textAlign = TextAlign.Center
                 )
                 Text(
-                    text = stringResource(id = R.string.registration_number),
+                    text = student.regNo,
                     fontWeight = FontWeight.ExtraBold,
                      textAlign = TextAlign.Center
                 )
                 Spacer(Modifier.height(6.dp))
                 Row {
-                    Text(stringResource(R.string.issue_date))
+                    Text("Issued: ${student.issueDate}")
                     Spacer(Modifier.width(20.dp))
-                    Text(stringResource(R.string.expiry_date,))
+                    Text("Expiry: ${student.expiryDate}")
                 }
                 Spacer(Modifier.height(8.dp))
                 Barcode()
@@ -201,9 +211,17 @@ fun Barcode() {
     heightDp = 360
 )
 @Composable
-fun UniversityIDPreview(){
+fun UniversityIDPreview() {
+    val student = Student(
+        name = "NABAYA NESTROY",
+        programme = "BSc computer science",
+        regNo = "24/2/306/D/053",
+        issueDate = "2024",
+        expiryDate = "2027",
+        photoRes = R.drawable.cryus
+    )
+
     MaterialTheme {
-        UniversityID(
-        )
+        UniversityID(student = student)
     }
 }
