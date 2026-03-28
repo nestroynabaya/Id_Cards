@@ -93,7 +93,7 @@ fun UniversityID() {
                             painter = painterResource(R.drawable.ndu_logo),
                             contentDescription = null,
                             modifier = Modifier
-                                .fillMaxSize(0.75f),
+                                .fillMaxSize(),
                             contentScale = ContentScale.Fit
                         )
                     }
@@ -115,7 +115,7 @@ fun UniversityID() {
                             .offset(y = 25.dp)
                             .clip(CircleShape)
                             .background(Color.White)
-                            .border(3.dp, Maroon, CircleShape),
+                            .border(3.dp, MaroonDark, CircleShape),
                         contentAlignment = Alignment.Center
                     ) {
 
